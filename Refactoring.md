@@ -9,3 +9,12 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+The refactored code now adheres to SRP, by separating out the responsibility of getting the partition key from the responsibility of checking its length and creating a hash. It also made the code more readable and easier to test, as well as making it more maintainable, by removing unnecessary checks and making the constants clearer and closer to their usage.
+A few notable steps:
+- Extracted the logic for the partition key into a separate function called getPartitionKey. This makes the code more readable and easier to test.
+- Replaced the candidate variable to use the partition key directly. It was all over the place and used in different contexts.
+
+### Recommended next step:
+1. Extract the hashing function to a separate module. It would make the code more modular and reusable.
+2. Use error handling. The code currently doesn't throw or handle any errors. At least, we should add error validations for parameters of exported functions.
+3. Type annotations. Adding type annotations arguments and return values the code more self-documenting and help prevent bugs.
